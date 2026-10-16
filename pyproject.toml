@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cbgui"
+version = "0.1.0"
+description = "Streamlit-Oberfläche für die Randelementbibliothek CliffordBem"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = ["numpy>=1.24", "scipy>=1.10", "streamlit>=1.40", "plotly>=5.20"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5", "psutil"]
+
+[tool.setuptools.packages.find]
+include = ["cbgui*"]
+
+[tool.setuptools.package-data]
+cbgui = ["templates/*.json"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+ignore = ["E501", "B008", "SIM108", "UP037", "E741", "B023"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["library: braucht eine gebaute CliffordBem-Bibliothek (CBGUI_WORKER_PYTHONPATH oder installiertes cliffordbem)"]

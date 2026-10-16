@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+# Daten der GUI (Läufe, Uploads) liegen standardmäßig in ~/cbgui_data; falls lokal gewählt:
+cbgui_data/
+runs/
+*.npz
+.streamlit/secrets.toml
+*.token
+github_token*

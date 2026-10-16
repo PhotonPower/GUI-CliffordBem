@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "name": "golddimer_nahfeld",
+  "host": {
+    "n": 1.33,
+    "chi": 0.0
+  },
+  "formulation": {
+    "type": "flat",
+    "params": {}
+  },
+  "excitation": {
+    "type": "plane_wave",
+    "params": {
+      "wavelength": 600.0,
+      "direction": "z",
+      "polarization": "linear",
+      "psi": 0.0
+    }
+  },
+  "solver": {
+    "tol": 1e-06,
+    "max_iter": 1000,
+    "threads": 0
+  },
+  "_title": "Gold-Dimer: Nahfeld und optische Bindung",
+  "_text": "Zwei Kugeln (R = 20 nm, Spalt 6 nm), Polarisation entlang der Dimerachse bei 600 nm: Feldverstärkung im Spalt und Kräfte (Anziehung).",
+  "bodies": [
+    {
+      "id": "ka",
+      "label": "Kugel A",
+      "geometry": {
+        "type": "sphere",
+        "params": {
+          "radius": 20.0,
+          "n": 8
+        }
+      },
+      "position": [
+        -23.0,
+        0,
+        0
+      ],
+      "material": {
+        "type": "tabulated",
+        "params": {
+          "name": "Au"
+        }
+      },
+      "chi": 0.0
+    },
+    {
+      "id": "kb",
+      "label": "Kugel B",
+      "geometry": {
+        "type": "sphere",
+        "params": {
+          "radius": 20.0,
+          "n": 8
+        }
+      },
+      "position": [
+        23.0,
+        0,
+        0
+      ],
+      "material": {
+        "type": "tabulated",
+        "params": {
+          "name": "Au"
+        }
+      },
+      "chi": 0.0
+    }
+  ],
+  "observables": [
+    {
+      "type": "extinction",
+      "params": {}
+    },
+    {
+      "type": "nearfield",
+      "params": {
+        "plane": "xz",
+        "nu": 121,
+        "nv": 61
+      }
+    },
+    {
+      "type": "forces",
+      "params": {
+        "intensity": 1.0
+      }
+    }
+  ]
+}

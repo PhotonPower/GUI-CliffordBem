@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "name": "goldkugel_spektrum",
+  "host": {
+    "n": 1.33,
+    "chi": 0.0
+  },
+  "formulation": {
+    "type": "flat",
+    "params": {}
+  },
+  "excitation": {
+    "type": "plane_wave",
+    "params": {
+      "wavelength": 530.0
+    }
+  },
+  "solver": {
+    "tol": 1e-06,
+    "max_iter": 1000,
+    "threads": 0
+  },
+  "_title": "Goldkugel in Wasser: Spektrum",
+  "_text": "Kugel mit 20 nm Radius, Extinktionsspektrum 450–650 nm mit Mie-Vergleich. Der Einstieg.",
+  "bodies": [
+    {
+      "id": "goldkugel",
+      "label": "Goldkugel",
+      "geometry": {
+        "type": "sphere",
+        "params": {
+          "radius": 20.0,
+          "n": 8
+        }
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "material": {
+        "type": "tabulated",
+        "params": {
+          "name": "Au"
+        }
+      },
+      "chi": 0.0
+    }
+  ],
+  "observables": [
+    {
+      "type": "extinction",
+      "params": {}
+    },
+    {
+      "type": "spectrum",
+      "params": {
+        "lam_min": 450.0,
+        "lam_max": 650.0,
+        "n_points": 21,
+        "pol": "excitation",
+        "orient": 1
+      }
+    }
+  ]
+}

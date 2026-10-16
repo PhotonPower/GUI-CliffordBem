@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "name": "silberwuerfel_spektrum",
+  "host": {
+    "n": 1.33,
+    "chi": 0.0
+  },
+  "formulation": {
+    "type": "flat",
+    "params": {}
+  },
+  "excitation": {
+    "type": "plane_wave",
+    "params": {
+      "wavelength": 530.0
+    }
+  },
+  "solver": {
+    "tol": 1e-06,
+    "max_iter": 1000,
+    "threads": 0
+  },
+  "_title": "Silberwürfel: Spektrum (scharfe Kanten)",
+  "_text": "Würfel mit 40 nm Kante, gradiertes Netz, Spektrum 350–500 nm. Zeigt die Prüfung zum Resonanzfenster scharfer Kanten.",
+  "bodies": [
+    {
+      "id": "silberwürfel",
+      "label": "Silberwürfel",
+      "geometry": {
+        "type": "cube",
+        "params": {
+          "edge": 40.0,
+          "mesh": "graded",
+          "n": 3
+        }
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "material": {
+        "type": "tabulated",
+        "params": {
+          "name": "Ag"
+        }
+      },
+      "chi": 0.0
+    }
+  ],
+  "observables": [
+    {
+      "type": "spectrum",
+      "params": {
+        "lam_min": 350.0,
+        "lam_max": 500.0,
+        "n_points": 16,
+        "pol": "excitation",
+        "orient": 1
+      }
+    }
+  ]
+}

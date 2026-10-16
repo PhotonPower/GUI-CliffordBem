@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "name": "goldkugel_gekruemmt",
+  "host": {
+    "n": 1.33,
+    "chi": 0.0
+  },
+  "formulation": {
+    "type": "curved",
+    "params": {}
+  },
+  "excitation": {
+    "type": "plane_wave",
+    "params": {
+      "wavelength": 530.0
+    }
+  },
+  "solver": {
+    "tol": 1e-06,
+    "max_iter": 1000,
+    "threads": 0
+  },
+  "_title": "Genauigkeit: ebene gegen gekrümmte Elemente",
+  "_text": "Dieselbe Goldkugel mit gekrümmten Elementen: Abweichung gegen Mie unter 0,1 % bei nur 180 Elementen. Danach „Formulierung“ auf Standard stellen und vergleichen.",
+  "bodies": [
+    {
+      "id": "goldkugel",
+      "label": "Goldkugel",
+      "geometry": {
+        "type": "sphere",
+        "params": {
+          "radius": 20.0,
+          "n": 3
+        }
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "material": {
+        "type": "tabulated",
+        "params": {
+          "name": "Au"
+        }
+      },
+      "chi": 0.0
+    }
+  ],
+  "observables": [
+    {
+      "type": "extinction",
+      "params": {}
+    }
+  ]
+}
